@@ -1,0 +1,14 @@
+services:
+  anvil-uplink:
+    # if something fails or the server is restarted, the container will restart
+    restart: always 
+    container_name: anvil-uplink
+    image: anvil-uplink
+    network_mode: host
+    volumes:
+      - /home/bitnami/backend:/backend
+
+    build: 
+      # build the image from the Dockerfile in the current directory
+      context: .
+      network: host
